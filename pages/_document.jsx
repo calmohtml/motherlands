@@ -39,6 +39,7 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
+          <div id="navbar__modal"></div>
         </body>
       </Html>
     );

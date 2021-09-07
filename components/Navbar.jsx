@@ -1,8 +1,13 @@
 import styled from "styled-components";
 import { FaGlobeAmericas } from "@react-icons/all-files/fa/FaGlobeAmericas";
+import Modal from "./Modal";
+import { Fragment, useState } from "react";
 import Link from "next/link";
+import { FiAlignJustify } from "@react-icons/all-files/fi/FiAlignJustify";
 
 export const Navbar = () => {
+  const [showModal, setShowModal] = useState(false);
+
   const Nav = styled.nav`
     background-color: var(--blue);
     display: flex;
@@ -31,51 +36,69 @@ export const Navbar = () => {
       }
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 640px) {
       ul {
         display: none;
       }
     }
   `;
 
-  const StyledLink = styled(Link)`
-    color: red;
-    background: blue;
+  const ModalButton = styled.button`
+    display: flex;
+    background-color: transparent;
+    border: none;
+    height: 4rem;
+    width: 4rem;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: var(--white-blue);
+
+    @media (min-width: 640px) {
+      display: none;
+    }
   `;
 
   return (
-    <Nav>
-      <div>
-        <FaGlobeAmericas />
-        <h1>Motherlands</h1>
-      </div>
-      <ul>
-        <li>
-          <StyledLink passHref href="/africa">
-            Africa
-          </StyledLink>
-        </li>
-        <li>
-          <StyledLink passHref href="/americas">
-            America
-          </StyledLink>
-        </li>
-        <li>
-          <StyledLink passHref href="/asia">
-            Asia
-          </StyledLink>
-        </li>
-        <li>
-          <StyledLink passHref href="/europe">
-            Europe
-          </StyledLink>
-        </li>
-        <li>
-          <StyledLink passHref href="/oceania">
-            Oceania
-          </StyledLink>
-        </li>
-      </ul>
-    </Nav>
+    <Fragment>
+      <Nav>
+        <div>
+          <FaGlobeAmericas />
+          <h1>Motherlands</h1>
+        </div>
+        <ul>
+          <li>
+            <Link passHref href="/africa">
+              Africa
+            </Link>
+          </li>
+          <li>
+            <Link passHref href="/americas">
+              America
+            </Link>
+          </li>
+          <li>
+            <Link passHref href="/asia">
+              Asia
+            </Link>
+          </li>
+          <li>
+            <Link passHref href="/europe">
+              Europe
+            </Link>
+          </li>
+          <li>
+            <Link passHref href="/oceania">
+              Oceania
+            </Link>
+          </li>
+        </ul>
+        <ModalButton onClick={() => setShowModal(true)}>
+          <FiAlignJustify />
+        </ModalButton>
+      </Nav>
+      <Modal show={showModal} onClose={() => setShowModal(false)} />
+    </Fragment>
   );
 };
