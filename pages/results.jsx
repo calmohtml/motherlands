@@ -4,25 +4,25 @@ import { Layout } from "../components/Layout";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-const Home = () => {
-  const [country, setCountry] = useState("");
+const Results = () => {
+  /* const [country, setCountry] = useState(""); */
 
-  const handleSubmit = async (event) => {
+  /* const handleSubmit = async (event) => {
     event.preventDefault();
-    const router = useRouter();
     const endpoint = `https://restcountries.eu/rest/v2/name/${country}`;
 
     try {
+      const router = useRouter();
       const response = await fetch(endpoint);
       const getSearchedCountry = await response.json();
-      if (typeof window !== "undefined") {
-        router.push("/results");
-      }
       console.log(getSearchedCountry);
+      if (typeof window !== "undefined") {
+        router.push("/new/url");
+      }
     } catch (error) {
       console.error(error.message);
     }
-  };
+  }; */
 
   const Section = styled.section`
     display: grid;
@@ -41,10 +41,10 @@ const Home = () => {
         <meta name="description" content="Home - Motherlands" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Home - Motherlands</title>
+        <title>Results - Motherlands</title>
       </Head>
       <Section>
-        <label htmlFor="country">Search a country...</label>
+        {/* <label htmlFor="country">Search a country...</label>
         <form onSubmit={handleSubmit} action="">
           <input
             id="country"
@@ -54,10 +54,10 @@ const Home = () => {
             onChange={(event) => setCountry(event.target.value)}
             required
           />
-        </form>
+        </form> */}
       </Section>
     </Layout>
   );
 };
 
-export default Home;
+export default Results;

@@ -29,7 +29,7 @@ const Country = styled.section`
       margin-bottom: 3rem;
 
       li {
-        font-size: 1.4rem;
+        font-size: 1.5rem;
         list-style: none;
         margin: 0.6rem 0;
       }

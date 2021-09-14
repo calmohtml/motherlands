@@ -18,6 +18,11 @@ export const getServerSideProps = async ({ query }) => {
   };
 };
 
+const RegionName = styled.h1`
+  padding: 1rem;
+  font-size: 3rem;
+`;
+
 const List = styled.ul`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -26,6 +31,10 @@ const List = styled.ul`
     list-style: none;
     padding: 1rem;
     margin: 0 auto;
+
+    h2 {
+      font-size: 1.75rem;
+    }
 
     a:hover {
       cursor: pointer;
@@ -42,7 +51,7 @@ const Region = ({ data }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>{data[0].region} - Motherlands</title>
       </Head>
-      <h1>{data[0].region}</h1>
+      <RegionName>{data[0].region}</RegionName>
       <List>
         {data.map((country) => (
           <li key={country.alpha3Code}>
