@@ -2,6 +2,7 @@ import { Layout } from "../../components/Layout";
 import Link from "next/link";
 import Image from "next/image";
 import styled from "styled-components";
+import Head from "next/head";
 
 const endpoint = `https://restcountries.eu/rest/v2/region/`;
 
@@ -35,6 +36,12 @@ const List = styled.ul`
 const Region = ({ data }) => {
   return (
     <Layout>
+      <Head>
+        <meta name="description" content={`${data[0].region} - Motherlands`} />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{data[0].region} - Motherlands</title>
+      </Head>
       <h1>{data[0].region}</h1>
       <List>
         {data.map((country) => (

@@ -69,8 +69,8 @@ const GlobalStyle = createGlobalStyle`
 
   #__next {
     display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+    flex-direction: column;
+    min-height: 100vh;
   }
 `;
 

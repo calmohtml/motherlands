@@ -1,6 +1,7 @@
 import { Layout } from "../../components/Layout";
 import Image from "next/image";
 import styled from "styled-components";
+import Head from "next/head";
 
 const endpoint = "https://restcountries.eu/rest/v2/alpha/";
 
@@ -55,6 +56,12 @@ const Id = ({ data }) => {
 
   return (
     <Layout>
+      <Head>
+        <meta name="description" content={`${getData.name} - Motherlands`} />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{getData.name} - Motherlands</title>
+      </Head>
       <Country>
         <div>
           <h1>

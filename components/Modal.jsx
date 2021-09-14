@@ -67,6 +67,11 @@ const Modal = ({ show, onClose, children }) => {
       <WrapperOverlay>
         <NavbarMobileLinks>
           <li>
+            <Link passHref href="/">
+              Home
+            </Link>
+          </li>
+          <li>
             <Link passHref href="/africa">
               Africa
             </Link>

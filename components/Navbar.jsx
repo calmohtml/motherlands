@@ -69,6 +69,11 @@ export const Navbar = () => {
         </div>
         <ul>
           <li>
+            <Link passHref href="/">
+              Home
+            </Link>
+          </li>
+          <li>
             <Link passHref href="/africa">
               Africa
             </Link>
